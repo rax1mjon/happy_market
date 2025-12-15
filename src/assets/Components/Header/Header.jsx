@@ -29,7 +29,7 @@ const Header = () => {
             placeholder="search product ..."
             onChange={(e) => handleSearchChange(e)}
           />
-          <span class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
+          <span class=" left-2 top-1/2 -translate-y-1/2 text-gray-400">
             <img src={search} alt="" />
           </span>
         </form>
