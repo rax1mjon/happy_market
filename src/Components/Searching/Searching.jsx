@@ -2,7 +2,12 @@ import React from 'react'
 
 const Searching = () => {
   return (
-    <div>Searching</div>
+    <>
+
+    <div></div>
+    <div></div>
+    </>
+    
   )
 }
 
