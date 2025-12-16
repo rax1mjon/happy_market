@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
-import NotFount from "./Components/NotFount/NotFount";
 import { Suspense } from "react";
-import Loading from "./assets/Components/Loading/Loading";
 
+const Loading = lazy(() => import("./assets/Components/Loading/Loading"));
 const Layout = lazy(() => import("./assets/Components/Layout/Layout"));
-const Login = lazy(() => import("./Components/Login/Login"));
-const Home = lazy(() => import("./Components/Home/Home"));
-const Searching = lazy(() => import("./Components/Searching/Searching"));
-const Product = lazy(() => import("./Components/Product/Product"));
+const Login = lazy(() => import("./Pages/Login/Login"));
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Searching = lazy(() => import("./Pages/Searching/Searching"));
+const Product = lazy(() => import("./Pages/Product/Product"));
+const NotFount = lazy(() => import("./Pages/NotFount/NotFount"));
 
 function App() {
   return (
