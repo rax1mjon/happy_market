@@ -15,8 +15,8 @@ function App() {
     <>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route index element={<Login />} />
           <Route path="/" element={<Layout />}>
+            <Route index element={<Login />} />
             <Route path="home" element={<Home />} />
             <Route path="searching/:search_name" element={<Searching />} />
             <Route path="product/:product_name" element={<Product />} />
