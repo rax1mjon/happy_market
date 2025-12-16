@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import LogoBtn from "../LogoBtn/LogoBtn";
 
 const Footer = () => {
@@ -5,14 +6,42 @@ const Footer = () => {
     event.preventDefault();
     console.log("Form submitted");
   };
+  const navigate = useNavigate();
 
+  const onClickFunc = (query) => {
+    navigate("/" + query);
+  };
   return (
     <footer className="custom_container mb-4">
       <div className="footer-wrapper py-6 px-6 w-full flex flex-col justify-center items-center gap-6 border border-red-300 rounded-2xl z-50 bg-white transition-all duration-300 hover:shadow-md hover:shadow-green-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex-col gap-10 justify-around items-center w-full">
           <div className="flex flex-col flex-1 gap-4 items-start md:col-span-2 lg:col-span-3">
             <LogoBtn />
-            <div className="w-full min-w-55 h-50 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl border border-green-50"></div>
+            <div className="w-full min-w-55 h-50 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl border border-green-50">
+              <div className="flex">
+                <span>navigate :</span>
+                <ul className="flex gap-3">
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => onClickFunc("home")}
+                  >
+                    home
+                  </li>
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => onClickFunc("searching/example")}
+                  >
+                    searching
+                  </li>
+                  <li
+                    className="cursor-pointer"
+                    onClick={() => onClickFunc("product/machine")}
+                  >
+                    product
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <form className="flex flex-col gap-2">
