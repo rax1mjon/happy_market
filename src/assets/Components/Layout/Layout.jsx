@@ -9,7 +9,7 @@ const Layout = () => {
     
     <Header/>
 
-    <main>
+    <main className='pb-8'>
       <Outlet/>
     </main>
 

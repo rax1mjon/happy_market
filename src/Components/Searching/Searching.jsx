@@ -1,9 +1,10 @@
+import React from "react";
 import { useState } from "react";
 import { search } from "../../assets/images";
 
 const Searching = () => {
   const ageGroups = ["all", "kids", "adults", "seniors"];
-  const genders = ["all", "male", "female"];
+  const genders = ["all", "male", "female", "unisex"];
 
   const [ageSelected, setAgeSelected] = useState("all");
   const [ageOpen, setAgeOpen] = useState(false);
@@ -14,14 +15,14 @@ const Searching = () => {
   return (
     <>
       <div className="custom_container">
-        <div className="flex flex-col w-120 h-110 p-12 container border-2 border-gray-200 rounded-2xl">
-          <div className="flex gap-3 items-center mb-6">
-            <img src={search} alt="search" className="w-8.75" />
+        <div className="flex flex-col w-[480px] h-[440px] p-12  border-2 border-gray-200 rounded-2xl">
+          <div className="flex gap-3 items-center mb-6 r">
+            <img src={search} alt="search" className="w-[35px]" />
             <p className="text-[25px] font-semibold">Searching Results</p>
           </div>
 
           {/* Select Filter */}
-          <div className="flex flex-col gap-6 w-62.5 p-4">
+          <div className="flex flex-col gap-6 w-[250px] p-4">
             {/* Age Select */}
             <div className="relative">
               <label className="block mb-2 font-medium text-gray-700">
@@ -104,7 +105,7 @@ const Searching = () => {
             </div>
           </div>
           <button
-            className="mt-4 w-62.5 ml-2 text-gray-500 bg-gray-200 py-2 rounded transition-colors"
+            className="mt-4 w-[250px] ml-2 text-gray-500 bg-gray-200 py-2 rounded transition-colors"
             onClick={() => {
               setAgeSelected("all");
               setGenderSelected("all");
