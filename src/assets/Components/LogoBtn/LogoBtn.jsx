@@ -8,7 +8,7 @@ const LogoBtn = () => {
       to="/home"
       className="
     group flex gap-0.5 items-center justify-self-start 
-    border-2 border-transparent bg-gray-100 py-1 md:pr-3 rounded-xl
+    border-2 border-transparent bg-gray-100 py-1 pr-3 sm:pr-0 lg:pr-3 rounded-xl
     transition-all duration-300 
     hover:bg-white hover:border-green-500 
     hover:shadow-[0_8px_15px_-3px_rgba(34,197,94,0.2)] 
@@ -21,7 +21,7 @@ const LogoBtn = () => {
 
       <span
         className="
-    hidden md:block whitespace-nowrap text-sm font-bold 
+    sm:hidden lg:block  whitespace-nowrap text-sm font-bold 
     text-gray-800 transition-all duration-300 
     group-hover:text-red-600 group-hover:translate-x-1"
       >

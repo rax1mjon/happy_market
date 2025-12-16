@@ -8,12 +8,11 @@ const Footer = () => {
 
   return (
     <footer className="custom_container mb-4">
-   
       <div className="footer-wrapper py-6 px-6 w-full flex flex-col justify-center items-center gap-6 border border-red-300 rounded-2xl z-50 bg-white transition-all duration-300 hover:shadow-md hover:shadow-green-50">
-        <div className="flex gap-10 justify-around items-center w-full">
-          <div className="flex flex-col flex-1 gap-4 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex-col gap-10 justify-around items-center w-full">
+          <div className="flex flex-col flex-1 gap-4 items-start md:col-span-2 lg:col-span-3">
             <LogoBtn />
-            <div className="w-full h-50 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl border border-green-50"></div>
+            <div className="w-full min-w-55 h-50 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl border border-green-50"></div>
           </div>
 
           <form className="flex flex-col gap-2">
@@ -81,7 +80,6 @@ const Footer = () => {
           </form>
         </div>
 
-        {/* Copyright yozuvi uchun yuqoridan border qo'shildi */}
         <div className="w-full pt-4 border-t border-gray-50 flex justify-center">
           <span className="text-[11px] text-gray-400 tracking-widest uppercase">
             &copy; 2025/2026 Happy Market. All rights reserved.
