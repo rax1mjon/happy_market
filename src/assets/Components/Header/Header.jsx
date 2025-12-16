@@ -1,42 +1,92 @@
-import React from "react";
-import { avatar, logo, search } from "../../images";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { avatar, search } from "../../images";
+import LogoBtn from "../LogoBtn/LogoBtn";
 
 const Header = () => {
+  const [isShrunk, setIsShrunk] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsShrunk(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleSearchChange = (event) => {
     const query = event.target.value;
-    // Implement search logic here, e.g., update state or call a search function
     console.log("Search query:", query);
   };
 
   return (
-    <header className="fixed top-1 left-1.5 right-1.5 border rounded-lg bg-white custom_container">
-      <div className="header-wrapper py-3 px-1 w-full flex justify-between items-center gap-4 ">
-        <NavLink
-          to="/home"
-          className="flex gap-1 items-center justify-self-start border rounded-lg bg-gray-100 py-1 pr-2  transition-all duration-150 hover:shadow-md hover:-translate-x-0.2 hover:scale-102 active:scale-100 active:translate-x-0"
+    <header
+      className={`fixed left-1.5 right-1.5 z-50 border rounded-lg bg-white/95 backdrop-blur-sm transition-all duration-500 ease-in-out
+      ${
+        isShrunk
+          ? "top-2 py-2 shadow-md border-red-200"
+          : "top-1 py-5 border-gray-200 shadow-sm"
+      } custom_container`}
+    >
+      <div
+        className={`header-wrapper px-2 w-full flex justify-between items-center gap-4 transition-all duration-500 
+        ${isShrunk ? "scale-[0.98] py-1.5" : "scale-100 py-4"}`}
+      >
+        <div
+          className={`transition-transform duration-500 ${
+            isShrunk ? "scale-90" : "scale-100"
+          }`}
         >
-          <div className="header-brand w-8 h-6">
-            <img src={logo} alt="" />
-          </div>
-          <span className="whitespace-nowrap text-[12px] ">Happy Market</span>
-        </NavLink>
+          <LogoBtn />
+        </div>
 
-        <form className="flex-1 w-100 min-w-0 relative ">
+        <form className="flex-1 w-100 min-w-0 relative group">
           <input
-            className="[&::-webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:appearance-none p-1 pl-8 placeholder:text-[14px]  focus:outline-none focus:border focus:border-black rounded-lg text-gray-700/70 text-[12px] focus:bg-gray-300/20 transition-all duration-150  shadow-[0_4px_5px_-1px_rgba(0,0,0,0.2)] w-full"
+            className={`
+              w-full pl-10 pr-4 rounded-xl border-2 border-gray-100 bg-gray-50 
+              text-sm text-gray-700 placeholder:text-gray-400
+              transition-all duration-500 ease-in-out
+              shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]
+              focus:outline-none focus:bg-white focus:border-green-500 
+              focus:ring-4 focus:ring-green-100 focus:scale-[1.01] 
+              ${isShrunk ? "p-1.5" : "p-2"} 
+              [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:appearance-none`}
             type="search"
-            placeholder="search product ..."
+            placeholder="Mahsulotlarni qidirish..."
             onChange={(e) => handleSearchChange(e)}
           />
-          <span class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
-            <img src={search} alt="" />
+
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 transition-all duration-300 group-focus-within:scale-110 w-5 h-5 flex items-center justify-center">
+            <img
+              src={search}
+              alt="search"
+              className="transition-all duration-300 filter group-focus-within:sepia-[1] group-focus-within:hue-rotate-320 group-focus-within:saturate-[5]"
+            />
           </span>
+          <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-500 transition-all duration-500 group-focus-within:w-[60%] group-focus-within:-translate-x-1/2 rounded-full" />
         </form>
 
-        <div className="flex gap-1.5 items-center">
-          <img className="w-6 h-6 rounded-[50%] border" src={avatar} alt="" />
-          <span className="whitespace-nowrap">profile_name</span>
+        <div
+          className={`flex gap-2 items-center group cursor-pointer p-1 pr-3 rounded-xl transition-all duration-500 hover:bg-gray-50 
+          ${isShrunk ? "scale-90" : "scale-100"}`}
+        >
+          <div className="relative">
+            <img
+              className="w-8 h-8 rounded-full border-2 border-green-500 p-0.5 object-cover
+                 transition-all duration-300 ease-out
+                 group-hover:rotate-12 group-hover:scale-110 group-hover:border-blue-500 shadow-sm"
+              src={avatar}
+              alt="profile"
+            />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="whitespace-nowrap text-sm font-semibold text-gray-700 transition-all duration-300 group-hover:text-blue-600 group-hover:translate-x-1">
+              profile_name
+            </span>
+            <div className="h-0.5 w-0 bg-green-500 transition-all duration-300 group-hover:w-full group-hover:bg-blue-500 rounded-full" />
+          </div>
         </div>
       </div>
     </header>

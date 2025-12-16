@@ -1,7 +1,7 @@
 /* HTML: <div class="loader"></div> */
 body {
   background-color: var(--color-gray-50);
-  padding-top: 100px;
+  padding: 100px 0 12px;
   transform: scale();
 }
 
