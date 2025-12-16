@@ -1,14 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Searching = () => {
   return (
     <>
-
-    <div></div>
-    <div></div>
+      <div></div>
+      <div></div>
     </>
-    
-  )
-}
+  );
+};
 
-export default Searching
+export default Searching;
