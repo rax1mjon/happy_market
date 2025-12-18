@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
+import Footer from "../../Footer/Footer";
+import LandingHeader from "../LendingHeader/LendingHeader";
 
-const Layout = () => {
+const LendingLayout = () => {
   return (
     <>
-      <Header />
+      <LandingHeader />
 
       <main className="pb-8 pt-40 sm:pt-25">
         <Outlet />
@@ -17,4 +17,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default LendingLayout;

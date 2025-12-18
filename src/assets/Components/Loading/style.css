@@ -1,7 +1,11 @@
-/* HTML: <div class="loader"></div> */
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-gray-50);
-  padding: 100px 0 12px;
+  padding: 0 0 12px;
   transform: scale();
 }
 

@@ -3,7 +3,7 @@ import React from "react";
 const ProductCard = ({ product, product_name, product_desc, cost }) => {
   return (
     <div
-      className="group shadow-md rounded-lg p-4 flex flex-col gap-3 w-60 bg-white
+      className="group shadow-md rounded-lg p-4 flex flex-col gap-3   bg-white
             transition-all duration-500 ease-out 
             /* Ring o'lchamni buzmaydi, rotate esa nozik qiyalik beradi */
             hover:ring-1 hover:ring-green-400 hover:shadow-lg

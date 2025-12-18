@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { avatar, search } from "../../images";
 import LogoBtn from "../LogoBtn/LogoBtn";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isShrunk, setIsShrunk] = useState(false);
 
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       setIsShrunk(window.scrollY > 40);
@@ -17,6 +19,15 @@ const Header = () => {
   const handleSearchChange = (event) => {
     const query = event.target.value;
     console.log("Search query:", query);
+  };
+
+  const onFinish = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const query = Object.fromEntries(formData.entries()).search;
+
+    if (query.trim()) navigate(`/searching/${query}`);
   };
 
   return (
@@ -41,7 +52,7 @@ const Header = () => {
         </div>
 
         <div className="flex-1 w-100 min-[360px]:min-w-85 order-1  sm:order-0 ">
-          <form className="  min-w-0 relative group ">
+          <form className="min-w-0 relative group" onSubmit={onFinish}>
             <input
               className={`
                 w-full pl-10 pr-4 rounded-xl border-2 border-gray-100 bg-gray-50 
@@ -53,8 +64,9 @@ const Header = () => {
                 ${isShrunk ? "p-1.5" : "p-2"} 
                 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:appearance-none`}
               type="search"
+              name="search"
               placeholder="Mahsulotlarni qidirish..."
-              onChange={(e) => handleSearchChange(e)}
+              onChange={handleSearchChange}
             />
 
             <span className="absolute left-3 top-1/2 -translate-y-1/2 transition-all duration-300 group-focus-within:scale-110 w-5 h-5 flex items-center justify-center">

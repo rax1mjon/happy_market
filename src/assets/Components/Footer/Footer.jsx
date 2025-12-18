@@ -11,8 +11,21 @@ const Footer = () => {
   const onClickFunc = (query) => {
     navigate("/" + query);
   };
+
+
+const onFinish = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    
+
+    console.log("Yuborildi:", data);
+
+}
   return (
-    <footer className="custom_container mb-4">
+    <footer className="custom_container mb-4 p-[0_20px]">
       <div className="footer-wrapper py-6 px-6 w-full flex flex-col justify-center items-center gap-6 border border-red-300 rounded-2xl z-50 bg-white transition-all duration-300 hover:shadow-md hover:shadow-green-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex-col gap-10 justify-around items-center w-full">
           <div className="flex flex-col flex-1 gap-4 items-start md:col-span-2 lg:col-span-3">
@@ -44,13 +57,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <form className="flex flex-col gap-2">
+          <form className="flex flex-col gap-2" onSubmit={onFinish}>
             <input
               className="p-1 pl-3 placeholder:text-[14px] focus:outline-none border border-gray-200 
                focus:border-green-500 focus:ring-2 focus:ring-green-100 rounded-lg 
                text-gray-700 text-[12px] focus:bg-white transition-all duration-300 
                shadow-sm w-full focus:-translate-y-0.5"
               type="text"
+              name="name"
               placeholder="Your name"
             />
 
@@ -60,6 +74,7 @@ const Footer = () => {
                text-gray-700 text-[12px] focus:bg-white transition-all duration-300 
                shadow-sm w-full focus:-translate-y-0.5"
               type="email"
+              name="email"
               placeholder="Your email"
             />
 
@@ -69,6 +84,7 @@ const Footer = () => {
                rounded-lg text-gray-700 text-[12px] focus:bg-white transition-all 
                duration-300 shadow-sm w-full focus:-translate-y-0.5"
               placeholder="Enter your opinions"
+              name="message"
             ></textarea>
 
             <button

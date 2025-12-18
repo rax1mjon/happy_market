@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
 import { Suspense } from "react";
 import Lending from "./Pages/Lending/Lending";
+import LendingLayout from "./assets/Components/Lending/LendingLayout/LendingLayout";
 
 const Loading = lazy(() => import("./assets/Components/Loading/Loading"));
 const Layout = lazy(() => import("./assets/Components/Layout/Layout"));
@@ -16,9 +17,11 @@ function App() {
     <>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Lending />} />
             <Route path="login" element={<Login />} />
+          <Route path="/" element={<LendingLayout />}>
+            <Route index element={<Lending />} />
+          </Route>
+          <Route path="/" element={<Layout />}>
             <Route path="home" element={<Home />} />
             <Route path="searching/:search_name" element={<Searching />} />
             <Route path="product/:product_name" element={<Product />} />
