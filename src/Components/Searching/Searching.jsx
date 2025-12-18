@@ -4,7 +4,7 @@ import { search } from "../../assets/images";
 
 const Searching = () => {
   const ageGroups = ["all", "kids", "adults", "seniors"];
-  const genders = ["all", "male", "female", "unisex"];
+  const genders = ["all", "male", "female"];
 
   const [ageSelected, setAgeSelected] = useState("all");
   const [ageOpen, setAgeOpen] = useState(false);
@@ -14,7 +14,7 @@ const Searching = () => {
 
   return (
     <>
-      <div className="custom_container">
+      <div className="custom_container flex">
         <div className="flex flex-col w-[480px] h-[440px] p-12  border-2 border-gray-200 rounded-2xl">
           <div className="flex gap-3 items-center mb-6 r">
             <img src={search} alt="search" className="w-[35px]" />
@@ -116,7 +116,11 @@ const Searching = () => {
             Clear All
           </button>
         </div>
+        <div>
+          <p>Serching Relts</p>
+        </div>
       </div>
+      
     </>
   );
 };
