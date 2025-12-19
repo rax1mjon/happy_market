@@ -4,9 +4,10 @@ import { NavLink } from "react-router-dom";
 
 const LogoBtn = ({ lending }) => {
   return (
-    <NavLink
-      to="/home"
-      className={`
+    <>
+      <NavLink
+        to="/home"
+        className={`
         ${lending ? "pr-0" : "pr-3"}
         sm:pr-0 lg:pr-3
     group flex gap-0.5 items-center justify-self-start 
@@ -16,21 +17,22 @@ const LogoBtn = ({ lending }) => {
     hover:shadow-[0_8px_15px_-3px_rgba(34,197,94,0.2)] 
     hover:scale-105 hover:-translate-y-0.5
     active:scale-95 active:translate-y-0`}
-    >
-      <div className="header-brand w-14  transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110">
-        <img src={logo} alt="Happy Market Logo" />
-      </div>
+      >
+        <div className="header-brand w-14  transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110">
+          <img src={logo} alt="Happy Market Logo" />
+        </div>
 
-      <span
-        className={`
+        <span
+          className={`
           ${lending && "hidden"}
     sm:hidden lg:block  whitespace-nowrap text-sm font-bold 
     text-gray-800 transition-all duration-300 
     group-hover:text-red-600 group-hover:translate-x-1`}
-      >
-        Happy Market
-      </span>
-    </NavLink>
+        >
+          Happy Market
+        </span>
+      </NavLink>
+    </>
   );
 };
 

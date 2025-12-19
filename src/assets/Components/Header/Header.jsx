@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { avatar, search } from "../../images";
+import { avatar } from "../../images";
 import LogoBtn from "../LogoBtn/LogoBtn";
 import { useNavigate } from "react-router-dom";
+import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
   const [isShrunk, setIsShrunk] = useState(false);
@@ -55,7 +56,7 @@ const Header = () => {
           <form className="min-w-0 relative group" onSubmit={onFinish}>
             <input
               className={`
-                w-full pl-10 pr-4 rounded-xl border-2 border-gray-100 bg-gray-50 
+                w-full pl-12 pr-4 rounded-xl border-2 border-gray-100 bg-gray-50 
                 text-sm text-gray-700 placeholder:text-gray-400
                 transition-all duration-500 ease-in-out
                 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]
@@ -69,13 +70,20 @@ const Header = () => {
               onChange={handleSearchChange}
             />
 
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 transition-all duration-300 group-focus-within:scale-110 w-5 h-5 flex items-center justify-center">
+            {/* <button
               <img
                 src={search}
                 alt="search"
-                className="transition-all duration-300 filter group-focus-within:sepia-[1] group-focus-within:hue-rotate-320 group-focus-within:saturate-[5]"
               />
-            </span>
+            </button> */}
+            <button
+              className="absolute left-3 top-1/2 -translate-y-1/2 transition-all duration-300 group-focus-within:scale-110 w-7 h-7 flex items-center justify-center hover:bg-gray-200 rounded-full hover:border-gray-300 border border-transparent p-1 hover:scale-105 active:scale-95 active:bg-green-300"
+    
+              type="submit"
+            >
+              <CiSearch size={24} strokeWidth={1.5} className="text-gray-700" />
+            </button>
+
             <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-500 transition-all duration-500 group-focus-within:w-[60%] group-focus-within:-translate-x-1/2 rounded-full" />
           </form>
         </div>
